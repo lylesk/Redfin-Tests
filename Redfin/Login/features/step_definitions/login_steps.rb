@@ -6,8 +6,8 @@ Given(/^I am on the Redfin login screen$/) do
 end
 
 When(/^I submit a valid username and password$/) do
-	fill_in 'emailInput', :with =>'funstuffonly77@gmail.com'
-	fill_in 'passwordInput', :with=> 'Redp@ss11'
+	fill_in 'emailInput', :with =>'testemail@email.com' # can supply valid test email address if needed
+	fill_in 'passwordInput', :with=> 'testpassword' # can supply valid test password if needed
 	click('submitButton')
 end
 
