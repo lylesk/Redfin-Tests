@@ -1,2 +1,2 @@
-# Redfin-Tests
-Sample login and search tests
+# Redfin Tests
+Tests written in Cucumber / Capybara to test the login and search feature
