@@ -15,10 +15,10 @@ browser.element(:css=>"[data-rf-test-name='submitButton']").click
 sleep 3
 
 puts "Select field and enter email address"
-browser.element(:name=> "emailInput").send_keys 'funstuffonly77@gmail.com'
+browser.element(:name=> "emailInput").send_keys 'testtesttest@email.com'
 
 puts "Enter password and hit submit"
-browser.element(:name=>"passwordInput").send_keys 'Redp@ss11'
+browser.element(:name=>"passwordInput").send_keys 'testpassword'
 sleep 1
 
 browser.button(:class=> "button Button  primary submitButton v3").click #I had to use class instead of the test attribute because the I was having difficulty getting the button to be selected with the submitButton a second time. 
