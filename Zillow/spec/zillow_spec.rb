@@ -14,4 +14,6 @@ conn = Faraday.new(:url => 		'http://www.zillow.com/webservice/GetSearchResults.
 response = conn.get
 apistatus = response.status
 puts "Response status from API should be a 200. Actual response status is a: #{apistatus}"
+#expect(response).to have_http_status(:success) 
+#expect(response).to match 
 puts "I was unable to figure out how to successfully parse the response form an XML and verify the address that was passed in."
