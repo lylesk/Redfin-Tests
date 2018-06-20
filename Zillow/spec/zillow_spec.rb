@@ -3,32 +3,15 @@ require 'faraday'
 require 'rspec'
 require 'webmock/rspec'
 require 'net/http'
-
-
-describe ZillowAPI do
-	context 'The results of hitting the API'
-	it "should match the address entered in the search" do
-		before do
-		url = 'https://www.zillow.com/webservice/GetSearchResults.htm'
-		end
-		
-	it "should return a 200 response when searching for a specific address"
-	conn = Faraday.new(url: url) do |faraday|
-		faraday.adapter Faraday.default_adapter
-		faraday.response :json
-		conn.get do |req|
-		req.params['zws-id'] ='zws-id=X1-ZWz1gi0bozmebv_9d4gz'
-		req.params['address'] = '1603 Southeast 29th Avenue'
-		req.params['citystatezip'] = 'Portland'
-		response = conn.get
-		expect(response).to eq 200
-		end
-		end
+			
+conn = Faraday.new(:url => 		'http://www.zillow.com/webservice/GetSearchResults.htm?zws-id=X1-ZWz1gi0bozmebv_9d4gz&address=1603+Southeast+29th+Avenue+&citystatezip=Portland%2C+OR') 
+		#I wanted to use parameters and pass those into the query string instead of hardcoding the URL but unfortunately, I ran into difficulty successfully doing that. Below is what I left off with
+		#conn.get do |req|
+		#req.params['zws-id'] ='zws-id=X1-ZWz1gi0bozmebv_9d4gz'
+		#req.params['address'] = '1603 Southeast 29th Avenue'
+		#req.params['citystatezip'] = 'Portland, OR'
 	
-	it "should return the correct address in the JSON response"
-		expect(response).to eq ('1603 Southeast 29th Avenue')
-		end
-	end
-
-###response.body (data['content'].to eq ('1603 Southeast 29th Avenue'))
-
+response = conn.get
+apistatus = response.status
+puts "Response status from API should be a 200. Response is a #{apistatus}"
+puts "I was unable to figure out how to successfully parse the response form an XML and verify the address that was passed in."
