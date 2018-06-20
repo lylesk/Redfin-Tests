@@ -11,8 +11,6 @@ When (/^I select the More Filters button$/) do
 	page.find_button ('Filters')
 	click_button ('Filters')
 end
-#"([^"]*)"
-#And (/^I add a filter for "([^"]*)" bedrooms$/) do |int|
 And (/^I add a filter for a min number of bedrooms$/) do 
 	#select int, from: 'minBeds'
 	select '2', from: 'minBeds'
